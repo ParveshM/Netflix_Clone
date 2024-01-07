@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { Navbar } from "../index";
+import { Navbar, Featured } from "../index";
 import axios from "axios";
 import { BANNER_URL, BASEIMG_URL } from "../../constants/constant";
 import { generateRandomIdx } from "../../utils/helper";
-import Featured from "./Featured";
+
 const Banner = () => {
   const [banner, setBanner] = useState("");
   useEffect(() => {
@@ -11,7 +11,7 @@ const Banner = () => {
       .get(BANNER_URL)
       .then((res) => {
         const data = res?.data?.results;
-        console.log(data);
+
         setBanner(data[generateRandomIdx(data.length)]);
       })
       .catch((err) => console.log("Error in api fetching :", err));
