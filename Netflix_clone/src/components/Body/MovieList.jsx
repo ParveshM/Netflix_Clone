@@ -47,9 +47,9 @@ const MovieList = ({ id, name }) => {
 
   return (
     <>
-      <h1 className="text-white text-lg pl-5">{name}</h1>
+      <h1 className="text-white text-xl pl-5">{name}</h1>
       <div
-        className="flex overflow-x-auto  gap-3 m-5 posters cursor-pointer"
+        className="flex overflow-x-auto gap-3 m-5 posters cursor-pointer"
         ref={itemRef}
         onMouseDown={handleMouseDown}
         onMouseLeave={handleMouseLeave}
