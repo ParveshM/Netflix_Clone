@@ -3,6 +3,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    // handling the scroll event and gives a Boolean value
     const handleScroll = () => {
       const isScrolled = window.scrollY > 50;
       setScrolled(isScrolled);
@@ -16,7 +17,7 @@ const Navbar = () => {
   }, []);
   return (
     <nav
-      className={`flex justify-between items-center z-[999] fixed inset-x-0 h-12  bg-gradient-to-t
+      className={`flex justify-between items-center z-[999] fixed inset-x-0 h-14  bg-gradient-to-t
     from-transparent to-black ${
       scrolled ? "bg-black" : ""
     } transition duration-700 ease-in-out`}
