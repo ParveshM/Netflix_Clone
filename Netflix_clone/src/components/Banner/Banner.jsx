@@ -21,7 +21,7 @@ const Banner = () => {
     <div className="relative">
       <Navbar />
       <img
-        className="max-w-full object-cover"
+        className="max-w-full object-cover "
         src={BASEIMG_URL + banner?.backdrop_path}
         alt="Movie poster"
       />
