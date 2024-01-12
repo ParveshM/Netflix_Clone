@@ -17,7 +17,7 @@ const Featured = ({ original_title, overview }) => {
           text={"Info"}
         />
       </div>
-      <div className="w-96 max-md:hidden">
+      <div className="w-96 max-h-36 overflow-hidden max-md:hidden ">
         <p className="my-5 text-base font-sans ">{overview}</p>
       </div>
     </div>

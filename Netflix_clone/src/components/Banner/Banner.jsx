@@ -6,6 +6,7 @@ import { generateRandomIdx } from "../../utils/helper";
 
 const Banner = () => {
   const [banner, setBanner] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     axios
       .get(BANNER_URL)
@@ -13,19 +14,26 @@ const Banner = () => {
         const data = res?.data?.results;
 
         setBanner(data[generateRandomIdx(data.length)]);
+        setIsLoading(false);
       })
       .catch((err) => console.log("Error in api fetching :", err));
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative mb-5">
       <Navbar />
-      <img
-        className="max-w-full object-cover "
-        src={BASEIMG_URL + banner?.backdrop_path}
-        alt="Movie poster"
-      />
-      <Featured {...banner} />
+      {isLoading ? (
+        <div className="bg-gray-600 w-full h-96"></div>
+      ) : (
+        <>
+          <img
+            className="max-w-full object-cover"
+            src={BASEIMG_URL + banner?.backdrop_path}
+            alt="Movie poster"
+          />
+          <Featured {...banner} />
+        </>
+      )}
     </div>
   );
 };

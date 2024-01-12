@@ -2,9 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import { MOVIE_URL, BASEIMG_URL } from "../../constants/constant";
 import axios from "axios";
 import "./style.css";
+import Shimmer from "./Shimmer";
+import MovieCard from "./MovieCard";
 
 const MovieList = ({ id, name }) => {
   const [movies, setMovies] = useState([]);
+
   const itemRef = useRef(null);
   const [isMouseDown, setIsMouseDown] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -19,6 +22,7 @@ const MovieList = ({ id, name }) => {
       .get(MOVIE_URL + id)
       .then((res) => {
         setMovies(res.data.results);
+        setIsLoading(false);
       })
       .catch((err) => console.log("Error in fetching Movie API", err));
   }
@@ -59,16 +63,7 @@ const MovieList = ({ id, name }) => {
         {movies.map((movie) => {
           // handling null image paths , backdrop is key name
           return movie.backdrop_path ? (
-            <div
-              className="max-w-sm rounded  shadow-lg w-56 h-36 flex-none"
-              key={movie.id}
-            >
-              <img
-                className="w-full h-full"
-                src={BASEIMG_URL + movie?.backdrop_path}
-                alt={movie?.original_title}
-              />
-            </div>
+            <MovieCard key={movie.id} {...movie} />
           ) : null;
         })}
       </div>
