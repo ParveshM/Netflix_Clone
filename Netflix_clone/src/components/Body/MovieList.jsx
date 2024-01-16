@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { MOVIE_URL, BASEIMG_URL } from "../../constants/constant";
 import axios from "axios";
 import "./style.css";
-import Shimmer from "./Shimmer";
 import MovieCard from "./MovieCard";
 
 const MovieList = ({ id, name }) => {
@@ -12,6 +11,7 @@ const MovieList = ({ id, name }) => {
   const [isMouseDown, setIsMouseDown] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+
   useEffect(() => {
     getMovies();
   }, []);
@@ -22,7 +22,6 @@ const MovieList = ({ id, name }) => {
       .get(MOVIE_URL + id)
       .then((res) => {
         setMovies(res.data.results);
-        setIsLoading(false);
       })
       .catch((err) => console.log("Error in fetching Movie API", err));
   }
