@@ -1,7 +1,7 @@
 # Netflix Clone with React and Tailwind CSS
 
 This is a Netflix clone built using React and Tailwind CSS. It utilizes the TMDB (The Movie Database) API to fetch movie data and display a Netflix-like interface. 🎬
-## Project Hosted on Netlify [NetflixClone](https://astonishing-arithmetic-d048b7.netlify.app/)
+## Project Hosted on Netlify [NetflixClone](https://charming-sprinkles-12c2d3.netlify.app/)
 
 ## Features
 
