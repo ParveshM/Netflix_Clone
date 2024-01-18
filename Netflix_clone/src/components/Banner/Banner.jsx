@@ -23,7 +23,7 @@ const Banner = () => {
     <div className="relative mb-5 lg:h-screen lg:mb-28">
       <Navbar />
       {isLoading ? (
-        <div className="bg-gray-600 w-full h-52 sm:h-96"></div>
+        <div className="bg-gray-600 w-full h-52 sm:h-96 lg:h-screen"></div>
       ) : (
         <>
           <img

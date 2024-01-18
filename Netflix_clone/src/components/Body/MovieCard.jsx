@@ -5,16 +5,11 @@ import Shimmer from "./Shimmer";
 const MovieCard = ({ id, backdrop_path, original_title }) => {
   const [isLoading, setIsLoading] = useState(true);
 
-  const handleOnLoad = () => {
-    console.log("Image loaded successfully");
-    setIsLoading(false);
-  };
-
   // creates a image object and set src ,also listen to onload event
   useEffect(() => {
     const image = new Image();
     image.src = BASEIMG_URL + backdrop_path;
-    image.onload = handleOnLoad;
+    image.onload = () => setIsLoading(false);
   }, [backdrop_path]);
 
   return isLoading ? (
@@ -25,7 +20,6 @@ const MovieCard = ({ id, backdrop_path, original_title }) => {
         className="w-full h-full"
         src={BASEIMG_URL + backdrop_path}
         alt={original_title}
-        onLoad={handleOnLoad}
       />
     </div>
   );
